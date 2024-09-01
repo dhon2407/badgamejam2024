@@ -4,6 +4,7 @@ using Yarn.Unity;
 
 namespace Game.Main.DialogueSystem
 {
+    [HideMonoScript]
     [CreateAssetMenu(fileName = "DialogueData", menuName = "DialogueSystem/Dialogue data", order = 0)]
     public class DialogueData : ScriptableObject
     {

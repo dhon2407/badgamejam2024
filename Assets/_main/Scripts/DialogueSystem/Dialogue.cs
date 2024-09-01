@@ -12,23 +12,13 @@ namespace Game.Main.DialogueSystem
     public class Dialogue : SingletonManager<Dialogue>
     {
         [SerializeField] private DialogueRunner dialogueRunner;
-        [SerializeField] private DialogueData defaultDialogue;
         [SerializeField] private VoiceOverLineProvider voiceOverLineProvider;
         
-        [FoldoutGroup("Others")] [SerializeField]
-        private DialogueData noticeDialogue;
-
         /// <summary>
         /// Start dialogue
         /// </summary>
         /// <param name="dialogueData">Dialogue data</param>
         public static void StartDialogue(DialogueData dialogueData) => GetInstance().StartDialogueImpl(dialogueData);
-
-        /// <summary>
-        /// Run notice(under development) dialogue
-        /// </summary>
-        public static void ShowNotice() => GetInstance().StartNoticeDialogue();
-
 
         private bool _dialogueRunning;
 
@@ -45,14 +35,6 @@ namespace Game.Main.DialogueSystem
                 /* Create the instance if it throws error */
                 return GameSettings.Dialog.Instantiate().GetComponent<Dialogue>();
             }
-        }
-
-        /// <summary>
-        /// Running test diaglogue
-        /// </summary>
-        private void StartNoticeDialogue()
-        {
-            StartDialogueImpl(noticeDialogue);
         }
         
         /// <summary>

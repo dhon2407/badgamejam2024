@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 162eafa07e49485986b52529c222c16d, type: 3}
-  m_Name: DialogueSettings
+  m_Script: {fileID: 11500000, guid: ab40417f6a5a4c63ab9125db1a226ba8, type: 3}
+  m_Name: VO_Test
   m_EditorClassIdentifier: 
-  dialogueSystem: {fileID: 3911766776898923530, guid: f4200815409c2a34c9ea26df4d6fc480, type: 3}
-  unknownCharacterSprite: {fileID: 0}
-  heroImageSprite: []
+  voiceOverTable: []
