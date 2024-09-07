@@ -37,7 +37,7 @@ public class TextBubble : MonoBehaviour
     {
         maxRate = mafiosoRate + civilianRate;
         bubbleText = this.GetComponentInChildren<TextMeshProUGUI>();
-        bubbleBG = this.GetComponentInChildren<Image>();
+        //bubbleBG = this.GetComponentInChildren<Image>(); ((doesnt work, look into it))
         InvokeRepeating("RollNewDialogue", startTime, repeatRate);
         isHidden = true;
 
@@ -58,22 +58,24 @@ public class TextBubble : MonoBehaviour
             // Debug.Log("Got: Civilian");
             int listSize = civilianDialogue.Count;
             roll = Random.Range(0, listSize);
-            currentDialogue = civilianDialogue[roll];
-            currentBubble.color = Color.white;
+            bubbleText.text = civilianDialogue[roll];
+            bubbleText.color = Color.white;
         }
         else
         {
             // Debug.Log("Got: Mafioso");
             int listSize = mafiosoDialogue.Count;
             roll = Random.Range(0, listSize);
-            currentDialogue = mafiosoDialogue[roll];
-            currentBubble.color = Color.red;
+            bubbleText.text = mafiosoDialogue[roll];
+            bubbleText.color = Color.red;
         }
+
+        //bubbleBG.rectTransform.sizeDelta = bgMaxSize;
 
         // If player is near and dialogue box isnt hidden
         if (isHidden == false)
         {
-            UpdateBubble();
+            UpdateBubble(); //huh this has issues, come back to it later
         }
         
         // Add background dynamically changing later if there's time
@@ -82,10 +84,10 @@ public class TextBubble : MonoBehaviour
 
     private void UpdateBubble()
     {
-        bubbleText.text = currentDialogue;
-        bubbleText.color = currentBubble.color;
+        bubbleText.text = currentDialogue;//fix
+        bubbleText.color = currentBubble.color;//fix
         this.transform.gameObject.tag = currentTag;
-        bubbleBG.rectTransform.sizeDelta = bgMaxSize;
+        bubbleBG.rectTransform.sizeDelta = bgMaxSize; //fix
     }
 
     public void Recorded()
