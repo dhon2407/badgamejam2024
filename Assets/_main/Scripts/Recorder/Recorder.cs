@@ -7,7 +7,7 @@ public class Recorder : MonoBehaviour
     [SerializeField] private float maxBattery;
     [SerializeField] private float batteryUsageRate;
     [SerializeField] Battery battery;
-        private float currentBattery;
+    private float currentBattery;
 
     void Start()
     {
@@ -23,7 +23,7 @@ public class Recorder : MonoBehaviour
             if(currentBattery > 0)
             {
                 StartRecording();
-                Debug.Log("Current Battery: " + currentBattery);
+                //Debug.Log("Current Battery: " + currentBattery);
             }
 
         }
